@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MVC_todolist</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style scoped>
+        
+        a {
+            list-style: none;
+            transition: 0.3s opacity;
+            text-decoration: none;
+        }
+
+            a:hover {
+                opacity: 0.7;
+                color: #000000;
+                text-decoration: none;
+            }
+
+        .buttonAdd {
+            border: 3px solid #04AA6D;
+            padding: 7px 7px;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px;
+        }
+
+        .buttonErase {
+            border: 3px solid #ff5050;
+            padding: 7px 7px;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px;
+        }
+
+        .buttonEdit {
+            border: 3px solid #ffd452;
+            padding: 7px 7px;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px;
+        }
+
+        .buttonInfo {
+            border: 3px solid #52d4ff;
+            padding: 7px 7px;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MVC_todolist</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="todolist" asp-action="Index">Lista de tarefas</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - TP1 - Feito por Eric F Guimarães - <a href="https://linkedin.com/in/ericfguimaraes"><img src="~/Assets/Img/linkedin.svg" class="img" width="20" alt="Linkedin" /></a> |
+            <a href="https://github.com/ericfg19/"><img src="~/Assets/Img/github.svg" class="img" width="22" alt="GitHub" /></a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

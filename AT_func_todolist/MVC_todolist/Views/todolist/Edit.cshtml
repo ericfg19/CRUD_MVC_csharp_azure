@@ -1,0 +1,54 @@
+﻿@model MVC_todolist.Models.ListaModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar/Atualizar</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                Nome da tarefa
+                <input asp-for="NomeTarefa" class="form-control" />
+                <span asp-validation-for="NomeTarefa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Data
+                <input asp-for="DataTarefa" class="form-control" />
+                <span asp-validation-for="DataTarefa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Detalhes
+                <input asp-for="Detalhes" class="form-control" />
+                <span asp-validation-for="Detalhes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Status
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Responsável
+                <input asp-for="Responsavel" class="form-control" />
+                <span asp-validation-for="Responsavel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" /> <img src="~/Assets/Img/check-circle-fill.svg" class="img" fill="currentColor" alt="Adicionar Tarefa" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar para a lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

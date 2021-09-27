@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MVC_todolist.Models.ListaModel>
+
+@{
+    ViewData["Title"] = "Tarefas";
+}
+
+<h1>Agendamento de Tarefas</h1>
+
+<p>
+    <a asp-action="Create">Criar nova tarefa</a>
+</p>
+<div class="col-4 p-0 justify-content-end">
+    <form asp-controller="Agenda" asp-action="Index">
+        <input class="btn-group" type="text" name="tarefa" />
+        <span type="text" placeholder="Nome da Tarefa">
+            <input class="btn-sm btn-info" type="submit" value="Filtrar" />
+        </span>
+
+    </form>
+    <div>
+        <a asp-action="Index">Limpar Filtro</a>
+    </div>
+
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tarefa
+            </th>
+            <th>
+                Data
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                Responsável
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeTarefa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataTarefa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Responsavel)
+            </td>
+            <td>
+                   @Html.ActionLink("Editar", "Edit", new { id=item.Id }) <img src="~/Assets/Img/pencil.svg" class="img" fill="currentColor" alt="Editar" /> |
+                   @Html.ActionLink("Detalhes", "Details", new { id = item.Id }) <img src="~/Assets/Img/info-circle.svg" class="img" fill="currentColor" alt="Detalhes" /> |
+                   @Html.ActionLink("Deletar", "Delete", new { id = item.Id }) <img src="~/Assets/Img/eraser-fill.svg" class="img" fill="currentColor" alt="Deletar" />
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
